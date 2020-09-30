@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerCode.CodeGeneration.Core", "PowerCode.CodeGeneration.Core\PowerCode.CodeGeneration.Core.csproj", "{D1F49283-21B8-443C-8A01-84F5543776EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerCode.CodeGeneration.Extensions", "PowerCode.CodeGeneration.Extensions\PowerCode.CodeGeneration.Extensions.csproj", "{A820DEB5-5F27-466C-8491-E13945F9AA7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1F49283-21B8-443C-8A01-84F5543776EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F49283-21B8-443C-8A01-84F5543776EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F49283-21B8-443C-8A01-84F5543776EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F49283-21B8-443C-8A01-84F5543776EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A820DEB5-5F27-466C-8491-E13945F9AA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A820DEB5-5F27-466C-8491-E13945F9AA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A820DEB5-5F27-466C-8491-E13945F9AA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A820DEB5-5F27-466C-8491-E13945F9AA7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F365943C-AEB6-4C28-8C0F-3185C5EE81C4}
+	EndGlobalSection
+EndGlobal
