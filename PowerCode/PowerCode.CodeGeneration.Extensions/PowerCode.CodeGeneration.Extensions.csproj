@@ -14,7 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PowerCode.CodeGeneration.Core\PowerCode.CodeGeneration.Core.csproj" />
+    <ProjectReference Include="..\PowerCode.CodeGeneration.Core\PowerCode.CodeGeneration.Core.csproj">
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
