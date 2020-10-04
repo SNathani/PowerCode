@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,10 +7,21 @@
     <Authors>Sridhar Nathani</Authors>
     <Description>Provides an extension method to generate code from "PowerCode", a code generation specification.</Description>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageLicenseFile>MIT-LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://snathani.github.io/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SNathani/PowerCode</RepositoryUrl>
+    <PackageTags>PowerCode, Code Generation, Code Generator, Extensions</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PowerCode.CodeGeneration.Core\PowerCode.CodeGeneration.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\MIT-LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
