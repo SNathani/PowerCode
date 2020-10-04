@@ -5,9 +5,11 @@ Type what really matters to declare members. The following is a simple **PowerCo
 
 ## Example 1 - Classes
 ```
+/*
 c Person, .name
 Id, Name, DateOfBirth, p5 UserDefinedField
 m GetAge:int
+*/
 ```
 The code generated for the above **PowerCode** specification is as below:
 
@@ -45,10 +47,12 @@ public class Person
 
 ## Example 2 - Interfaces
 ```
+/*
 i Repository<T>:IEntity<T>, GetAll:IEnumerable<T>, Get:T id:int
 m Add:T, item:T
 m Update:T, item:T
 m Delete ,id:int
+*/
 ```
 
 ... converted to
@@ -67,7 +71,9 @@ public interface Repository<T> : IEntity<T>
 ## Example 3 - Structures
 
 ```
+/*
 s Point, X:int, Y:int, m Clone:Point
+*/
 ```
 
 ... converted to
@@ -89,7 +95,9 @@ public struct Point
 ## Example 4 - Enums
 
 ```
+/*
 e Color, Red=0, Blue, Green, Yellow=10
+*/
 ```
 
 ... converted to
