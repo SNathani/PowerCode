@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PowerCode.CodeGeneration.Core;
+
+using System;
+using System.Diagnostics;
 
 namespace PowerCode.CodeGeneration.Extensions
 {
@@ -13,7 +16,15 @@ namespace PowerCode.CodeGeneration.Extensions
                 return result;
             }
             //Execute
-
+            var generator = new PowerCodeGenerator();
+            try
+            {
+                result = generator.Generate(powerCode);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.ToString());
+            }
             //Return
             return result;
 

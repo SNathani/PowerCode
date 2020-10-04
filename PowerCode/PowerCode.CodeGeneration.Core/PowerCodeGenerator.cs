@@ -5,7 +5,6 @@ using System.Text;
 namespace PowerCode.CodeGeneration.Core
 {
 
-
     public sealed class PowerCodeGenerator
     {
         /*
@@ -24,7 +23,6 @@ namespace PowerCode.CodeGeneration.Core
         s struct
 
         m method
-        f function
         p property
 
         */
@@ -33,15 +31,22 @@ namespace PowerCode.CodeGeneration.Core
         {
             var result = new StringBuilder();
             var lines = template.Split(Symbols.EOL, StringSplitOptions.RemoveEmptyEntries);
-            //lines.Dump();
 
             var builders = new List<IDeclarationBuilder>();
             IDeclarationBuilder lastCb = null;
+            
+            string lineToParse = string.Empty;
 
             foreach (var line in lines)
             {
-                var parts = line.Trim().Split(Symbols.SPACE, 2, StringSplitOptions.RemoveEmptyEntries);
-                //parts.Dump();
+                lineToParse = line.Trim();
+                if (lineToParse.StartsWith("*"))
+                {
+                    //Remove comment marker *
+                    lineToParse = lineToParse.Substring(1).Trim();
+                }
+
+                var parts = lineToParse.Split(Symbols.SPACE, 2, StringSplitOptions.RemoveEmptyEntries);
 
                 if (parts.Length == 0) continue;
 
@@ -51,28 +56,28 @@ namespace PowerCode.CodeGeneration.Core
                 {
                     case "e":
                         if (parts.Length <= 1) break;
-                        //result.AppendLine($"Enum {parts[1]}");
+
                         var eb = new EnumDeclarationBuilder(parts[1]);
                         builders.Add(eb);
                         break;
 
                     case "c":
                         if (parts.Length <= 1) break;
-                        //result.AppendLine($"Class {parts[1]}");
+
                         lastCb = new ClassDeclarationBuilder(parts[1]);
                         builders.Add(lastCb);
                         break;
 
                     case "i":
                         if (parts.Length <= 1) break;
-                        //result.AppendLine($"Interface {parts[1]}");
+
                         lastCb = new InterfaceDeclarationBuilder(parts[1]);
                         builders.Add(lastCb);
                         break;
 
                     case "s":
                         if (parts.Length <= 1) break;
-                        //result.AppendLine($"Interface {parts[1]}");
+
                         lastCb = new StructDeclarationBuilder(parts[1]);
                         builders.Add(lastCb);
                         break;
@@ -80,10 +85,7 @@ namespace PowerCode.CodeGeneration.Core
                     case "m":
                         if (parts.Length <= 1) break;
 
-                        //result.AppendLine($"Method {parts[1]}");
                         MethodDeclarationBuilder mb = new MethodDeclarationBuilder(parts[1]);
-
-                        //lastCb = builders.Where(f => f.GetType().Equals(typeof(ClassDeclarationBuilder))).LastOrDefault();
 
                         if (lastCb != null)
                         {
@@ -101,18 +103,15 @@ namespace PowerCode.CodeGeneration.Core
                         break;
 
                     default:
-                        //result.AppendLine($"Property {line}");
-                        if (string.IsNullOrEmpty(line)) { break; }
+                        if (string.IsNullOrEmpty(lineToParse)) { break; }
 
-                        var pb = new PropertyDeclarationBuilder(line);
-
-                        //lastCb = builders.Where(f => f.GetType().Equals(typeof(ClassDeclarationBuilder))).LastOrDefault();
+                        var pb = new PropertyDeclarationBuilder(lineToParse);
 
                         if (lastCb != null)
                         {
                             if (lastCb.GetType().Equals(typeof(InterfaceDeclarationBuilder)))
                             {
-                                pb = new PropertyDeclarationBuilder(line, isInterface: true);
+                                pb = new PropertyDeclarationBuilder(lineToParse, isInterface: true);
                             }
                             lastCb.AddBuilder(pb);
                         }

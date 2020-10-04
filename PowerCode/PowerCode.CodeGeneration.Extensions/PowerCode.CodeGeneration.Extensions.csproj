@@ -9,4 +9,8 @@
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PowerCode.CodeGeneration.Core\PowerCode.CodeGeneration.Core.csproj" />
+  </ItemGroup>
+
 </Project>
