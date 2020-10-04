@@ -29,8 +29,6 @@ namespace PowerCode.CodeGeneration.Core
 
         */
 
-
-
         public string Generate(string template)
         {
             var result = new StringBuilder();
