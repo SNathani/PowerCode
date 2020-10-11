@@ -10,7 +10,7 @@ namespace PowerCode.CodeGeneration.Core
 
         public static readonly Dictionary<string, List<string>> TypeInferences =
                     new Dictionary<string, System.Collections.Generic.List<string>>(){
-                        {"bool", new List<string> {"Is","Has"}},
+                        {"bool", new List<string> {"Is","Has","Can"}},
                         {"int", new List<string> {"Id","ID"}},
                         {"DateTime", new List<string> {"Date"}}
                     };
